@@ -1,0 +1,13 @@
+build/
+bin
+a.out
+./so_long
+.vscode
+minilibx-linux
+Dependencies/minilibx-linux
+Dependencies/Libft_Updated/.git
+include/ft_printf.h
+include/get_next_line.h
+include/libft.h
+include/mlx.h
+Sprout\ Lands\ -\ Sprites\ -\ Basic\ pack/
