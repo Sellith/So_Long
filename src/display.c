@@ -6,7 +6,7 @@
 /*   By: lvan-bre <lvan-bre@student.42lehavre.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/31 21:39:18 by lvan-bre          #+#    #+#             */
-/*   Updated: 2025/04/03 16:49:09 by lvan-bre         ###   ########.fr       */
+/*   Updated: 2025/04/04 02:56:41 by lvan-bre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,25 +17,25 @@ static int	defs_win_1(t_window *win)
 	int	size;
 
 	size = 48;
-	win->img[0] = xpm_img(win->mlx, "assets/waher.xpm", size);
+	win->img[0] = xpm_img(win->mlx, "assets/48x48/waher.xpm", size);
 	if (!win->img[0])
 		return (0);
-	win->img[1] = xpm_img(win->mlx, "assets/grass.xpm", size);
+	win->img[1] = xpm_img(win->mlx, "assets/48x48/grass.xpm", size);
 	if (!win->img[1])
 		return (1);
-	win->img[2] = xpm_img(win->mlx, "assets/wtng.xpm", size);
+	win->img[2] = xpm_img(win->mlx, "assets/48x48/wtng.xpm", size);
 	if (!win->img[2])
 		return (2);
-	win->img[3] = xpm_img(win->mlx, "assets/wtng_2.xpm", size);
+	win->img[3] = xpm_img(win->mlx, "assets/48x48/wtng_2.xpm", size);
 	if (!win->img[3])
 		return (3);
-	win->img[4] = xpm_img(win->mlx, "assets/cherry.xpm", size);
+	win->img[4] = xpm_img(win->mlx, "assets/48x48/cherry.xpm", size);
 	if (!win->img[4])
 		return (4);
-	win->img[5] = xpm_img(win->mlx, "assets/c_door.xpm", size);
+	win->img[5] = xpm_img(win->mlx, "assets/48x48/c_door.xpm", size);
 	if (!win->img[5])
 		return (5);
-	win->img[6] = xpm_img(win->mlx, "assets/o_door.xpm", size);
+	win->img[6] = xpm_img(win->mlx, "assets/48x48/o_door.xpm", size);
 	if (!win->img[6])
 		return (6);
 	return (7);
@@ -46,7 +46,7 @@ static int	defs_win_2(t_window *win)
 	int	size;
 
 	size = 48;
-	win->img[7] = xpm_img(win->mlx, "assets/mud.xpm", size);
+	win->img[7] = xpm_img(win->mlx, "assets/48x48/mud.xpm", size);
 	return (8);
 }
 
