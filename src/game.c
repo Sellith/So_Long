@@ -6,7 +6,7 @@
 /*   By: lvan-bre <lvan-bre@student.42lehavre.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/02 22:11:50 by lvan-bre          #+#    #+#             */
-/*   Updated: 2025/04/03 16:48:59 by lvan-bre         ###   ########.fr       */
+/*   Updated: 2025/04/04 03:01:53 by lvan-bre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static void	tile_man(t_game *data, int x, int y)
 	if (data->map->map[data->player[1] + y][data->player[0] + x] == 'C')
 	{
 		data->item++;
-		ft_printf("Item collected %i / %i", data->item, data->map->reachable);
+		ft_printf("Item collected %i / %i\n", data->item, data->map->reachable);
 	}
 	if (data->map->map[data->player[1] + y][data->player[0] + x] == 'X')
 		quit_lose(data);
