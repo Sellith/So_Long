@@ -6,7 +6,7 @@
 /*   By: lvan-bre <lvan-bre@student.42lehavre.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/02 22:11:50 by lvan-bre          #+#    #+#             */
-/*   Updated: 2025/04/04 03:01:53 by lvan-bre         ###   ########.fr       */
+/*   Updated: 2025/04/04 23:30:08 by lvan-bre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,43 +28,59 @@ static void	tile_man(t_game *data, int x, int y)
 		data->map->map[data->player[1]][data->player[0]] = '0';
 }
 
-static bool	move(t_game *data, int x, int y)
+static void	move(t_game *data, int x, int y)
 {
 	if (data->map->map[data->player[1] + y][data->player[0] + x] != '1')
 	{
 		tile_man(data, x, y);
+		data->moves++;
 		data->player[0] += x;
 		data->player[1] += y;
 		data->map->map[data->player[1]][data->player[0]] = 'P';
 		clean_img(data);
 		if (!put_image(data, data->win, data->map->map))
-			return (false);
-		data->moves++;
-		ft_printf("%i\n", data->moves);
+			return (exit_w_code(1, data));
 	}
 	if (data->item == data->map->reachable
 		&& data->player[0] == data->map->exit[0]
 		&& data->player[1] == data->map->exit[1])
 		quit_win(data);
-	return (true);
+}
+
+static void	keypress(int keysym, t_game *data)
+{
+	if (keysym == XK_Right || keysym == XK_D || keysym == XK_d)
+	{
+		data->mv->right++;
+		data->mv->rightc = true;
+		move(data, 1, 0);
+	}
+	if (keysym == XK_Left || keysym == XK_A || keysym == XK_a)
+	{
+		data->mv->left++;
+		data->mv->leftc = true;
+		move(data, -1, 0);
+	}
+	if (keysym == XK_Up || keysym == XK_W || keysym == XK_w)
+	{
+		data->mv->up++;
+		data->mv->upc = true;
+		move(data, 0, -1);
+	}
+	if (keysym == XK_Down || keysym == XK_S || keysym == XK_s)
+	{
+		data->mv->down++;
+		data->mv->downc = true;
+		move(data, 0, 1);
+	}
 }
 
 static int	keysel(int keysym, t_game *data)
 {
-	if (keysym == XK_Right || keysym == XK_D)
-		if (!move(data, 1, 0))
-			exit_w_code(1, data);
-	if (keysym == XK_Left || keysym == XK_A)
-		if (!move(data, -1, 0))
-			exit_w_code(1, data);
-	if (keysym == XK_Up || keysym == XK_W)
-		if (!move(data, 0, -1))
-			exit_w_code(1, data);
-	if (keysym == XK_Down || keysym == XK_S)
-		if (!move(data, 0, 1))
-			exit_w_code(1, data);
 	if (keysym == XK_Escape)
 		quit_sl(data);
+	else
+		keypress(keysym, data);
 	return (0);
 }
 

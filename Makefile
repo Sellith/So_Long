@@ -52,7 +52,7 @@ IFLAG			=	-I$(INCLUDE_DIR)
 ARCHIVES	=	$(ARCH_BIN)/libft.a $(ARCH_BIN)/printf.a $(ARCH_BIN)/libmlx.a
 
 SRC			=	main.c map.c free.c parsing_utils.c display.c exit.c game.c \
-				display_utils.c
+				game_utils.c img_init.c score.c
 
 OBJS_SRC	=	$(patsubst %.c, $(OBJ_SRC_DIR)/%.o, $(SRC))
 

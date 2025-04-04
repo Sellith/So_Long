@@ -6,7 +6,7 @@
 /*   By: lvan-bre <lvan-bre@student.42lehavre.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/26 13:49:49 by lvan-bre          #+#    #+#             */
-/*   Updated: 2025/04/03 15:34:25 by lvan-bre         ###   ########.fr       */
+/*   Updated: 2025/04/04 23:36:19 by lvan-bre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,11 @@ static bool	initall(t_game *data)
 	data->map = NULL;
 	data->pars = NULL;
 	data->win = NULL;
+	data->mv = NULL;
 	data->item = 0;
 	data->exit_img = 0;
 	data->moves = 0;
+	data->kp = false;
 	return (true);
 }
 

@@ -1,18 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   display_utils.c                                    :+:      :+:    :+:   */
+/*   score.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lvan-bre <lvan-bre@student.42lehavre.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/03 16:36:26 by lvan-bre          #+#    #+#             */
-/*   Updated: 2025/04/03 16:36:54 by lvan-bre         ###   ########.fr       */
+/*   Created: 2025/04/04 22:43:39 by lvan-bre          #+#    #+#             */
+/*   Updated: 2025/04/04 23:59:04 by lvan-bre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/So_Long.h"
 
-void	*xpm_img(void *mlx, char *path, int size)
+void	put_score(t_game *data)
 {
-	return (mlx_xpm_file_to_image(mlx, path, &size, &size));
+	char	*score;
+	char	*moves;
+
+	moves = ft_itoa(data->moves);
+	score = ft_strjoin("Votre score est : ", moves);
+	ft_printf("%s\n", score);
+	mlx_string_put(data->win->mlx, data->win->win, 20, 20, 255, score);
+	free(score);
+	free(moves);
 }

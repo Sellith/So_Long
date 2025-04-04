@@ -6,7 +6,7 @@
 /*   By: lvan-bre <lvan-bre@student.42lehavre.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 21:28:26 by lvan-bre          #+#    #+#             */
-/*   Updated: 2025/04/03 16:53:08 by lvan-bre         ###   ########.fr       */
+/*   Updated: 2025/04/04 23:36:10 by lvan-bre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,19 +22,13 @@ void	exit_w_code(int code, t_game *data)
 			close(data->map->mapfd);
 		free(data->map);
 	}
-	clean_img(data);
-	if (data->win)
+	if (data->mv)
 	{
-		if (data->win->win)
-			mlx_destroy_window(data->win->mlx, data->win->win);
-		if (data->win->mlx)
-		{
-			mlx_loop_end(data->win->mlx);
-			mlx_destroy_display(data->win->mlx);
-			free(data->win->mlx);
-		}
-		free(data->win);
+		clean_img(data);
+		free(data->mv);
 	}
+	if (data->win)
+		clean_win(data->win);
 	exit(code);
 }
 
